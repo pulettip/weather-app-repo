@@ -59,19 +59,31 @@ Runs on [http://localhost:5173](http://localhost:5173), proxied to call the back
 
 ## 📦 API Reference
 
-`GET /api/score?city=London`
+`GET /api/score?city=Florence`
 
-Returns a mock JSON score like:
+Returns a JSON response like:
 
 ```json
 {
-  "city": "London",
-  "scores": {
-    "skiing": 10,
-    "surfing": 30,
-    "outdoor_sightseeing": 80,
-    "indoor_sightseeing": 70
-  }
+  "city": "Florence",
+  "rankings": [
+    {
+      "date": "2025-05-03",
+      "temperature": 24.2,
+      "scoreSkiing": 8.9,
+      "scoreSurfing": 92.3,
+      "scoreOutdoorSightseeing": 65.7,
+      "scoreIndoorSightseeing": 24.2
+    },
+    {
+      "date": "2025-05-04",
+      "temperature": 23.4,
+      "scoreSkiing": 10.1,
+      "scoreSurfing": 88.4,
+      "scoreOutdoorSightseeing": 72.5,
+      "scoreIndoorSightseeing": 30.0
+    }
+  ]
 }
 ```
 
