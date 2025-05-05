@@ -50,16 +50,17 @@ Runs on [http://localhost:5173](http://localhost:5173), proxied to call the back
 
 - Select a city/town from the list
 - Calls weather API
-- Returns ranking for:
+- Returns daily ranking for:
   - Skiing
   - Surfing
   - Outdoor sightseeing
   - Indoor sightseeing
 
+Daily activity rankings are displayed to provide a complete picture in locations with variable temperatures, where preferred activities may change from day to day. This allows users to combine different options or assess whether there are enough favourable days for their chosen activity."
 
 ## 📦 API Reference
 
-`GET /api/score?city=Florence`
+`GET /api/weather-scores?city=Florence`
 
 Returns a JSON response like:
 
@@ -87,15 +88,21 @@ Returns a JSON response like:
 }
 ```
 
+The data structure design favours an array of objects, making the response easier to understand and simplifying front-end rendering.
+
 ## ❗Omitted Features
 
 Due to the 2–3 hour timebox, the following were not implemented:
 
-- Full city search in the frontend (limited to a list)
+- Full city search in the frontend (limited to a hardcoded list)
 - Persistent storage (e.g., PostgreSQL or MongoDB)
 - Full error handling or caching
 - Production-grade design/UI polish
 - Scalable infrastructure (e.g., AWS deployment or Kubernetes setup)
+
+## 📚 References
+
+Backend Project setup and structure inspired by  [LogRocket’s guide on Express with TypeScript](https://blog.logrocket.com/express-typescript-node/)
 
 ## 🤖 AI Usage
 
