@@ -5,7 +5,7 @@ import { z } from 'zod';
 const querySchema = z.object({
   lat: z.coerce.number(),
   lon: z.coerce.number(),
-  city: z.string(),
+  city: z.optional(z.string()),
 });
 
 export const getScoreResponse = async (req: Request, res: Response): Promise<any> => {

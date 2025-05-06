@@ -60,13 +60,15 @@ Daily activity rankings are displayed to provide a complete picture in locations
 
 ## 📦 API Reference
 
-`GET /api/weather-scores?city=Florence`
+`GET /api/weather-scores?lat=43.7696&lon=11.2558&city=Florence`
 
 Returns a JSON response like:
 
 ```json
 {
   "city": "Florence",
+  "lat": 43.7696,
+  "lon": 11.2558,
   "rankings": [
     {
       "date": "2025-05-03",
@@ -87,6 +89,7 @@ Returns a JSON response like:
   ]
 }
 ```
+The API was designed to use lat and lon to make it easier to scale to new cities via the client. The city parameter is not required and it can be omitted.
 
 The data structure design favours an array of objects, making the response easier to understand and simplifying front-end rendering.
 
