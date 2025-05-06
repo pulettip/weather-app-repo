@@ -1,15 +1,19 @@
 import { Request, Response } from 'express';
 import { getWeatherScores } from './weatherService';
+import { z } from 'zod';
+
+const querySchema = z.object({
+  lat: z.coerce.number(),
+  lon: z.coerce.number(),
+  city: z.string(),
+});
 
 export const getScoreResponse = async (req: Request, res: Response): Promise<any> => {
-  const { city } = req.query;
-  if (!city || typeof city !== 'string') {
-    return res.status(400).send({ error: 'City is required and must be a string' });
-  }
+  const { lat, lon, city } = querySchema.parse(req.query);
 
   try {
-    const scores = await getWeatherScores(city);
-    res.json({ city, rankings: scores });
+    const scores = await getWeatherScores(lat, lon);
+    res.json({ city, lat, lon, rankings: scores });
   } catch (error) {
     console.error(error);
     res.status(500).send({ error: 'Failed to fetch weather scores' });
